@@ -9,23 +9,23 @@ Helper actions for working with git on github actions
 ### configure-from-gpg-key
 
 Configure the local `git` to use the name, email and signature specified in the
-supplied GPG key. Example below will commit as the tradeshift CI user, by
+supplied GPG key. Example below will commit as the theros CI user, by
 configuring `git` from the supplied GPG key. Any GPG key should work.
 
 ```yaml
 steps:
-  - name: Configure git for tradeshiftci
+  - name: Configure git for therosci
     id: configure
-    uses: tradeshift/actions-git/configure-from-gpg-key@v1
+    uses: theros-org/actions-git/configure-from-gpg-key@v1
     with:
-      gpg-key: ${{ secrets.TRADESHIFTCI_GPG_KEY }}
+      gpg-key: ${{ secrets.THEROSCI_GPG_KEY }}
 ```
 
-Usage together with `tradeshift/create-pull-request`:
+Usage together with `theros-org/create-pull-request`:
 
 ```yaml
 - name: Create Pull Request
-  uses: tradeshift/create-pull-request@v3
+  uses: theros-org/create-pull-request@v3
   with:
     title: Example pull request
     body: 'Awesome example PR'

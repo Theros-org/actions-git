@@ -39,8 +39,8 @@ runs:
         GPG_EMAIL=${_GPG_EMAIL%>}
         # strip up to start of <email>
         GPG_NAME=${GPG_USER%<*}
-        git config --global user.email ${GPG_EMAIL}
-        git config --global user.name ${GPG_NAME}
+        git config --global user.email "${GPG_EMAIL}"
+        git config --global user.name "${GPG_NAME}"
 
         echo "user=${GPG_USER}" >> $GITHUB_OUTPUT
         echo "name=${GPG_NAME}" >> $GITHUB_OUTPUT

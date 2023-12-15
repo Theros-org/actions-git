@@ -28,7 +28,7 @@ runs:
         KEYDIR=$(mktemp -d)
         KEYFILE="${KEYDIR}/key.asc"
         echo "${{ inputs.gpg-key }}" > "${KEYFILE}"
-        GPG_SHORTID=$(gpg --show-keys --keyid-format=long "${KEYFILE}" | grep sec | cut -d/ -f2 | cut -d' ' -f1)
+        GPG_SHORTID=$(gpg --show-keys --keyid-format=long "${KEYFILE}" | grep sec -m 1 | cut -d/ -f2 | cut -d' ' -f1)
         gpg --import --batch --yes "${KEYFILE}"
         git config --global commit.gpgsign true
         git config --global user.signingkey "${GPG_SHORTID}"
